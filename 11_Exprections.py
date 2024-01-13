@@ -1,21 +1,17 @@
-my_dict = {'[':']', '(':')', '{':'}',}
-my_other_dict = { ']':'[', ')':'(', '}':'{'}
-my_exprection = []
+list1 = ["[","]","(",")","{","}"]
 
-def verification(exprection):
-    exprection = list(exprection)
-    for i in exprection:
-        if exprection[i] in my_dict:
-            my_exprection.append(my_dict[exprection[i]])
+def verificated (str):
+    my_expression = []
+    for i in str:
+        if i in list1:
+            my_expression.append(i)
+        else:
+            pass
+            
+    if my_expression[:3] == ["{","[","("] and my_expression[-3:] == [")","]","}"]:
+        return f"{str} son expresiones equilibradas"
+    else:
+        return f"{str} no son expresiones equilibradas"
 
-        elif exprection[i] in my_exprection:
-            my_exprection[i].insert(exprection[i])
-
-        elif exprection[i] not in my_dict and my_other_dict:
-            my_exprection[i].insert(exprection[i])
-
-    return my_exprection
-
-expresion_balanceada = "{[ a * ( c + d ) ] - 5}"
-
-print(verification(expresion_balanceada))
+my_expressions = verificated(input("anota el string que verificaras si estan equilibradas sus expreciones: "))
+print(my_expressions)
